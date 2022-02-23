@@ -1,25 +1,10 @@
-import React from 'react';
-import { NewNoteInput } from "./NewNoteInput";
-import { useSelector, useDispatch } from 'react-redux';
-import {NotesState} from './notesReducer'
+import React, {FC} from 'react';
+import { Person } from './components/Person';
 
-function App() {
-  const notes = useSelector<NotesState, NotesState['notes']>((state) => state.notes)
-  const dispatch = useDispatch()
-  
-  const addNote = (note:string) => {
-   dispatch({type:"ADD_NOTE", payload: note})
-  }
-
+const App:FC = () => {
   return (
     <>
-     <NewNoteInput addNote={addNote}/>
-    <hr />
-    <ul>
-      {notes.map(note => {
-        <li key={note}>{note}</li>
-      })}
-    </ul>
+    <Person name="marina" age={32} email="marg@gmail.com"/>
     </>
   );
 }
